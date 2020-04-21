@@ -1,21 +1,15 @@
-const express = require('express');
-const UserController = require('../app/controllers/UserControllers');
-const GuitarController = require('../app/controllers/GuitarController');
-const AddressController = require('../app/controllers/AddressController');
-const ReportController = require('../app/controllers/ReportController');
+const routes = require("express").Router();
 
-const routes = express.Router();
+const authMiddleware = require('../app/middleware/auth');
 
-routes.get('/users', UserController.index);
-routes.post('/users', UserController.store);
+const SessionController = require('../app/controllers/SessionController');
 
-routes.get('/users/:user_id/addresses', AddressController.index);
-routes.post('/users/:user_id/addresses', AddressController.store);
+routes.post("/session", SessionController.store);
 
-routes.get('/users/:user_id/guitars', GuitarController.index);
-routes.post('/users/:user_id/guitars', GuitarController.store);
-routes.delete('/users/:user_id/guitars', GuitarController.delete);
+routes.use(authMiddleware);
 
-routes.get('/report', ReportController.show);
+routes.get('/dashboard', (req, res) => {
+  return res.status(200).send();
+})
 
 module.exports = routes;

@@ -2,8 +2,6 @@ require('dotenv').config({
   path: process.env.NODE_ENV === "test" ? ".env.test" : ".env"
 });
 
-require('../src/config/database');
-
 const express = require('express');
 
 class AppController{
