@@ -9,12 +9,12 @@ yarn install
 #Frameworks e Bibliotecas
 [
 Node.js, Express, PostgresSQL, Sequelize, Jest, JWT, Bcrypt, Faker e Factory-Girl, EditorConfig, 
-DotEnv, Yup, Eslint, Prettier, Docker, MongoDB, Redis, NodeEmail, Sentry(tratamento de exceções BD)
+DotEnv, Yup, Eslint, Prettier, Docker, MongoDB, Redis, Nodemailer, Sentry(tratamento de exceções BD)
 ]
 
 #EM DESENVOLVIMENTO
 [
-Yup, Eslint, Prettier, Docker, MongoDB, Redis, NodeEmail, Sentry(tratamento de exceções BD)
+Yup, Eslint, Prettier, Docker, MongoDB, Redis, Nodemailer, Sentry(tratamento de exceções BD)
 
 #Executar testes
 [
