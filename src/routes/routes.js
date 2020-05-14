@@ -1,15 +1,15 @@
-const express = require('express');
-const UserController = require('../controllers/UserControllers');
-const GuitarController = require('../controllers/GuitarController');
-const AddressController = require('../controllers/AddressController');
+const routes = require("express").Router();
 
-const routes = express.Router();
+const authMiddleware = require('../app/middleware/auth');
 
-routes.get('/users', UserController.index);
-routes.post('/users', UserController.store);
+const SessionController = require('../app/controllers/SessionController');
 
-routes.get('/users/:user_id/addresses', AddressController.store);
+routes.post("/session", SessionController.store);
 
-routes.get('/users/:user_id/guitars', GuitarController.store);
+routes.use(authMiddleware);
+
+routes.get('/dashboard', (req, res) => {
+  return res.status(200).send();
+})
 
 module.exports = routes;
