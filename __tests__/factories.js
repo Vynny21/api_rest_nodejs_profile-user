@@ -3,7 +3,8 @@ const { factory } = require('factory-girl');
 const { User } = require('../src/app/models');
 
 factory.define('User', User, {
-  name: faker.name.findName(),
+  first_name: faker.name.firstName(),
+  last_name: faker.name.lastName(),
   email: faker.internet.email(),
   password: faker.internet.password()
 });

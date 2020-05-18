@@ -1,5 +1,4 @@
 const bcrypt = require('bcryptjs');
-
 const { User } = require('../../src/app/models');
 const truncate = require('../utils/truncate');
 
@@ -10,14 +9,14 @@ describe('User', () => {
 
   it('should encrypt user password', async () => {
     const user = await User.create({
-      name: "Vinicius",
-      email: "vynnyprud@gmail.com",
-      password: "123456"
+      first_name: 'Vinicius',
+      last_name: 'Prudencio',
+      email: 'vynnyprud@gmail.com',
+      password: '123456',
     });
 
-    const compareHash = await bcrypt.compare("123456", user.password_hash);
-  
-    expect(compareHash).toBe(true);
+    const compareHash = await bcrypt.compare('123456', user.password_hash);
 
+    expect(compareHash).toBe(true);
   });
 });
